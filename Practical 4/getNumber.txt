@@ -1,0 +1,47 @@
+	int getByte(int num){
+        int byteValue;
+	      int intValue=num;
+        byteValue = intValue-256*(intValue/256);
+        if (byteValue > 127){
+          byteValue = byteValue - 256;
+        }else if(byteValue < -128){
+          byteValue = byteValue + 256;
+        }
+      return byteValue;
+  }
+  
+  int getShort(int num){
+    int ans;
+    int temp=num/32768;
+    if(num>=0){
+      if(temp%2==0){
+        ans=num%32768;
+      }else{
+        ans=(num%32768)-32768;
+      }
+      return ans;
+    }else{
+      if(num==-32768){
+        ans=-32768;
+      }else if(temp%2==0){
+        ans=num%32768;
+      }else{
+        ans=(num%32768)+32768;
+      }
+      return ans;
+    }
+  }
+  
+  int getNumber(int number , String type){
+  int ans;
+    type=type.toLowerCase();
+    if(type.equals("byte")){
+      ans=getByte(number);
+    }else if(type.equals("short")){
+      ans=getShort(number);
+    }else{
+      return 0;
+    }
+  return ans;
+  }
+  

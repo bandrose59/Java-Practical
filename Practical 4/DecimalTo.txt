@@ -1,0 +1,51 @@
+
+
+public int DeciToBinary(int num) {
+  int solution = 0; 
+  int remainder = 0;
+  int reverse = 0;
+  int place = 1; 
+  while (num != 0) {
+      int rem = num % 2; 
+      num = num / 2; 
+      solution = solution + rem * place;
+      place *= 10; 
+  }
+  return solution;
+}
+
+
+
+public int DeciToOctal(int num) {
+  int solution = 0; 
+  int place = 1; 
+  while (num != 0) {
+      int rem = num % 8; 
+      num = num / 8;
+      solution = solution + rem * place;
+      place *= 10;   }
+
+  return solution;
+}
+
+
+
+
+public String DeciToHex(int num) {
+  String solution = "";
+
+  while (num != 0) {
+      int rem = num % 16; 
+      num = num / 16;
+      char hexChar;
+      if (rem < 10) {
+          hexChar = (char) ('0' + rem); 
+      } else {
+          hexChar = (char) ('A' + (rem - 10));
+      }
+      solution = hexChar + solution;
+  }
+
+  return solution;
+}
+

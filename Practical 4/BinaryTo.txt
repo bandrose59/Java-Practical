@@ -1,0 +1,74 @@
+//binary to decimal
+
+public int BinToDecimal(String num) {
+    int decimalValue = 0;
+    int power = 0;
+    
+    for (int i = num.length() - 1; i >= 0; i--) {
+        char digit = num.charAt(i);
+        int value = digit - '0'; // Convert char to integer (0 or 1)
+
+        decimalValue += value * Math.pow(2, power);
+        power++;
+    }
+
+    return decimalValue;
+}
+
+
+
+
+//binary to octal
+ public String BinToOcta(int num) {
+    String solution = "";
+    int power = 0; 
+    
+    while (num != 0) {
+        int rem = num % 1000; 
+        int decimalValue = 0;
+        int base = 1; 
+      
+        while (rem > 0) {
+            int lastDigit = rem % 10;
+            decimalValue += lastDigit * base;
+            base *= 2;
+            rem /= 10;
+        }
+  
+        solution = decimalValue + solution;
+  
+        num /= 1000;
+        power++;  
+    }
+    return solution;
+  }
+
+
+
+//binary to hexadecimal
+  public String BinToHex(int num) {
+    String solution = "";
+    while (num != 0) {
+        int rem = num % 10000; 
+        int decimalValue = 0;
+        int base = 1;
+        while (rem > 0) {
+            int lastDigit = rem % 10;
+            decimalValue += lastDigit * base;
+            base *= 2;
+            rem /= 10;
+        }
+        char hexChar;
+        if (decimalValue < 10) {
+            hexChar = (char) ('0' + decimalValue); 
+        } else {
+            hexChar = (char) ('A' + (decimalValue - 10)); 
+        }
+        solution = hexChar + solution;
+        num /= 10000;
+    }
+    return solution;
+  }
+    
+  
+}

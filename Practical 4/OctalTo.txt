@@ -1,0 +1,48 @@
+
+
+public int OctalToDecimal(int num) {
+  int solution = 0; 
+  int power = 0; // 
+  while (num != 0) {
+      int rem = num % 10;
+      if (rem > 7) {
+          System.out.println("Invalid octal number!");
+          return -1; 
+      }
+
+      solution += rem * Math.pow(8, power); 
+      num /= 10; // Remove the last digit
+      power++; 
+  }
+
+  return solution;
+}
+
+
+
+public int OctalToBinary(int num) {
+    int solution = 0; 
+    int place = 1; 
+
+    while (num != 0) {
+        int octalDigit = num % 10; 
+        num /= 10; 
+        if (octalDigit < 0 || octalDigit > 7) {
+            System.out.println("Invalid octal number!");
+            return -1; 
+        }
+        int binaryEquivalent = 0;
+        int base = 1;
+        while (octalDigit != 0) {
+            int rem = octalDigit % 2;
+            binaryEquivalent += rem * base;
+            base *= 10;
+            octalDigit /= 2;
+        }
+        solution += binaryEquivalent * place;
+        place *= 1000; 
+    }
+
+    return solution;
+}
+

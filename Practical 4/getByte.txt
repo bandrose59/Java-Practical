@@ -1,0 +1,13 @@
+	int getByte(int num){
+        int byteValue;
+	      int intValue=num;
+        byteValue = intValue-256*(intValue/256);
+        if (byteValue > 127){
+          byteValue = byteValue - 256;
+        }else if(byteValue < -128){
+          byteValue = byteValue + 256;
+        }
+      return byteValue;
+  
+
+
