@@ -1,24 +1,40 @@
-    static public int fact1(int num) {
-        int fact = 1 ;
-        for (int i = 1 ; i<=num ; i++) {
-            fact = fact * i ;
-        }
-        return fact ;
+public class factorial{
+  public static void main(String args[]){
+   fact1(6);
+   fact2(6);
+   fact3(6);
+  }
+int fact1(int num){
+    if(num>-1){
+      if(num<2){
+        return 1;
+      }
+      int fact=2;
+      for(;num>2;){
+        fact*=num--;
+      }
+      return fact;
+    }else{
+      return -1;
     }
-
-
-    static public int fact2(int num) {
-        int fact = 1 ;
-        int i = 1 ;
-        while(i<=num) {
-            fact = fact * i ;
-            i++ ;
-        }
-        return fact ;
+  }
+  
+  int fact2(int num){
+    if(num>-1){
+      if(num<2){
+        return 1;
+      }
+      int fact=2;
+      while(num>2){
+        fact*=num--;
+      }
+      return fact;
+    }else{
+      return -1;
     }
+  }
 
-
-    static int fact3(int num) {
+    int fact3(int num) {
     if (num < 0) {
        return -1;
     }
