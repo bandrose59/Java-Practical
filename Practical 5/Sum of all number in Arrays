@@ -1,0 +1,14 @@
+
+    static int sum1(int[] arr) {
+        int total = 0;
+        for (int num : arr) {
+            total += num;
+        }
+        return total;
+    }
+    static int sum2(int[] arr, int i) {
+        if (i == arr.length) {
+            return 0;
+        }
+        return arr[i] + sum2(arr, i + 1);
+    }
